@@ -1,5 +1,5 @@
-import pytest
 import csv
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -45,7 +45,7 @@ class Item:
     @classmethod
     def instantiate_from_csv(cls):
         cls.all = []
-        with open('../src/items.csv', newline='') as csvfile:
+        with open('src/items.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 cls(row['name'], row['price'], row['quantity'])

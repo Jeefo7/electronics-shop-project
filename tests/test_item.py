@@ -36,7 +36,7 @@ def test_instantiate_from_csv():
     Item.instantiate_from_csv()
     assert len(Item.all) == 5
     test1 = Item.all[0]
-    assert test1.name == "ТестСмартфон"
+    assert test1.name == "СуперСмартфон"
 
 def test_name():
     item1 = Item('Смартфон', 1000, 1)
