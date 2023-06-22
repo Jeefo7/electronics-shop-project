@@ -45,7 +45,7 @@ class Item:
     @classmethod
     def instantiate_from_csv(cls):
         cls.all = []
-        with open('src/items.csv', newline='') as csvfile:
+        with open('../src/items.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 cls(row['name'], row['price'], row['quantity'])
@@ -60,7 +60,10 @@ class Item:
 
     @name.setter
     def name(self, new_name):
-        if len(new_name) >= 10:
-            raise ValueError('More than 10 letters in the name')
-        else:
-            self.__name = new_name
+        try:
+            if len(new_name) >= 10:
+                raise ValueError('More than 10 letters in the name')
+            else:
+                self.__name = new_name
+        except ValueError:
+            print('More than 10 letters in the name')
