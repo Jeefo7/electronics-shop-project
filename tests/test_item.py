@@ -22,6 +22,9 @@ def test_name_setter():
     # длина наименования товара больше 10 символов
     item.name = 'СуперСмартфон'
     assert item.name != 'СуперСмартфон'
+    with pytest.raises(ValueError):
+        # длина наименования товара больше 10 символов
+        item.name = 'СуперСмартфон'
 
 def test_string_to_number():
     assert Item.string_to_number("5") == 5
@@ -33,6 +36,15 @@ def test_instantiate_from_csv():
     assert len(Item.all) == 5
     test1 = Item.all[0]
     assert test1.name == "Смартфон"
+
+def test_name():
+    item1 = Item('Смартфон', 1000, 1)
+
+    with pytest.raises(ValueError):
+        item1.name = 'СуперСмартфон'
+
+    item1.name = "Телефон"
+    assert item1.name == 'Телефон'
 
 def test_repr():
     item_test_1 = Item("Телефон", 50000, 20)
