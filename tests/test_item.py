@@ -33,3 +33,15 @@ def test_instantiate_from_csv():
     assert len(Item.all) == 5
     test1 = Item.all[0]
     assert test1.name == "Смартфон"
+
+def test_repr():
+    item_test_1 = Item("Телефон", 50000, 20)
+    item_test_2 = Item("Телевизор", 100000, 10)
+    assert repr(item_test_1) == "Item('Телефон', 50000, 20)"
+    assert repr(item_test_2) == "Item('Телевизор', 100000, 10)"
+
+def test_str():
+    item_test_1 = Item("Телефон", 50000, 20)
+    item_test_2 = Item("Телевизор", 100000, 10)
+    assert str(item_test_1) == "Телефон"
+    assert str(item_test_2) == "Телевизор"
