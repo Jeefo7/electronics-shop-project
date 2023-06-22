@@ -65,10 +65,7 @@ class Item:
 
     @name.setter
     def name(self, new_name):
-        try:
-            if len(new_name) >= 10:
-                raise ValueError('More than 10 letters in the name')
-            else:
-                self.__name = new_name
-        except ValueError:
+        if len(new_name) >= 10:
             print('More than 10 letters in the name')
+        else:
+            self.__name = new_name
