@@ -21,3 +21,4 @@ def test_setter():
     assert phone1.number_of_sim == 2
     with pytest.raises(ValueError):
         phone1.number_of_sim = 0
+        assert ValueError
