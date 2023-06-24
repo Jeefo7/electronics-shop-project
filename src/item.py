@@ -83,3 +83,4 @@ class Item:
             print('More than 10 letters in the name')
         else:
             self.__name = new_name
+
